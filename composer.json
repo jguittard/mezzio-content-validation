@@ -1,5 +1,5 @@
 {
-  "name": "jguittard/zend-expressive-content-validation",
+  "name": "zendframework/zend-expressive-content-validation",
   "type": "library",
   "description": "PSR-7 Validation middleware for Zend Expressive",
   "authors": [
