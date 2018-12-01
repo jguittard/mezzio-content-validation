@@ -1,0 +1,68 @@
+{
+  "name": "jguittard/zend-expressive-content-validation",
+  "type": "library",
+  "description": "PSR-7 Validation middleware for Zend Expressive",
+  "authors": [
+    {
+      "name": "Julien Guittard",
+      "email": "julien@guittard.io",
+      "homepage": "https://julien.guittard.io"
+    }
+  ],
+  "license": "MIT",
+  "repositories": [
+  ],
+  "keywords": [
+    "http",
+    "zend",
+    "expressive",
+    "validation",
+    "psr",
+    "psr-7"
+  ],
+  "require": {
+    "php": "^7.2",
+    "roave/security-advisories": "dev-master",
+    "zendframework/zend-expressive": "^3.0",
+    "zendframework/zend-filter": "^2.8",
+    "zendframework/zend-inputfilter": "^2.8",
+    "zendframework/zend-servicemanager": "^3.3",
+    "zendframework/zend-stdlib": "^3.1",
+    "zendframework/zend-validator": "^2.10",
+    "zendframework/zend-i18n": "^2.7",
+    "zendframework/zend-problem-details": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "7.0.1",
+    "zendframework/zend-coding-standard": "~1.0.",
+    "fzaninotto/faker": "^1.5",
+    "codeception/codeception": "*",
+    "zendframework/zend-expressive-tooling": "^1.0",
+    "zfcampus/zf-development-mode": "^3.1",
+    "filp/whoops": "^2.1.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zend\\Expressive\\ContentValidation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ZendTest\\Expressive\\ContentValidation\\": "test/"
+    }
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": "phpunit"
+  },
+  "extra": {
+    "zf": {
+      "config-provider": "Zend\\Expressive\\ContentValidation\\ConfigProvider"
+    }
+  }
+}
