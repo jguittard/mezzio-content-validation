@@ -68,7 +68,10 @@ class ValidationMiddleware implements MiddlewareInterface
         }
 
         if ($validationResult instanceof ValidationResult) {
-            $request = $request->withParsedBody($validationResult->getValues());
+            $body = $request->getParsedBody();
+            $values = $validationResult->getValues();
+            $data = array_intersect_key($values, $body);
+            $request = $request->withParsedBody($data);
         }
 
         return $handler->handle($request);
