@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Zend\Expressive\ContentValidation\Middleware;
 
+use Fig\Http\Message\RequestMethodInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -63,15 +64,21 @@ class ValidationMiddleware implements MiddlewareInterface
                 'Failed Validation',
                 '',
                 '',
-                ['errors' => $validationResult->getMessages()]
+                ['messages' => $validationResult->getMessages()]
             );
         }
 
         if ($validationResult instanceof ValidationResult) {
-            $body = $request->getParsedBody();
             $values = $validationResult->getValues();
-            $data = array_intersect_key($values, $body);
-            $request = $request->withParsedBody($data);
+            if ($request->getMethod() === RequestMethodInterface::METHOD_GET) {
+                $query = $request->getQueryParams();
+                $params = array_intersect_key($values, $query);
+                $request = $request->withQueryParams($params);
+            } elseif (in_array($request->getMethod(), [RequestMethodInterface::METHOD_POST, RequestMethodInterface::METHOD_PUT, RequestMethodInterface::METHOD_PATCH])) {
+                $body = $request->getParsedBody();
+                $data = array_intersect_key($values, $body);
+                $request = $request->withParsedBody($data);
+            }
         }
 
         return $handler->handle($request);
