@@ -1,2 +1,1 @@
-# mezzio-content-validation
-Zend Expressive Content Validation
+# Zend Expressive Content Validation
