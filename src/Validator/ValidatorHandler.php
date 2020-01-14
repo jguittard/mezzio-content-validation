@@ -1,25 +1,27 @@
 <?php
+
 /**
- * @see       https://github.com/jguittard/zend-expressive-content-validation for the canonical source repository
- * @copyright Copyright (c) 2018 Julien Guittard. (https://julien.guittard.io)
- * @license   https://github.com/jguittard/zend-expressive-content-validation/blob/master/LICENSE.md
+ * @see       https://github.com/jguittard/mezzio-content-validation for the canonical source repository
+ * @copyright Copyright (c) 2018 Julien Guittard. (https://julienguittard.com)
+ * @license   https://github.com/jguittard/mezzio-content-validation/blob/master/LICENSE.md
  *     MIT License
  */
+
 declare(strict_types=1);
 
-namespace Zend\Expressive\ContentValidation\Validator;
+namespace Mezzio\ContentValidation\Validator;
 
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Expressive\ContentValidation\Exception\NoValidationClassExists;
-use Zend\Expressive\ContentValidation\Extractor\DataExtractorChain;
-use Zend\Expressive\ContentValidation\Extractor\OptionsExtractor;
-use Zend\InputFilter\InputFilterInterface;
+use Mezzio\ContentValidation\Exception\NoValidationClassExists;
+use Mezzio\ContentValidation\Extractor\DataExtractorChain;
+use Mezzio\ContentValidation\Extractor\OptionsExtractor;
+use Laminas\InputFilter\InputFilterInterface;
 
 /**
  * Class ValidatorHandler
  *
- * @package Zend\Expressive\ContentValidation\Validator
+ * @package Mezzio\ContentValidation\Validator
  */
 final class ValidatorHandler implements ValidatorHandlerInterface
 {
