@@ -1,20 +1,22 @@
 <?php
+
 /**
- * @see       https://github.com/jguittard/zend-expressive-content-validation for the canonical source repository
- * @copyright Copyright (c) 2018 Julien Guittard. (https://julien.guittard.io)
- * @license   https://github.com/jguittard/zend-expressive-content-validation/blob/master/LICENSE.md
+ * @see       https://github.com/jguittard/mezzio-content-validation for the canonical source repository
+ * @copyright Copyright (c) 2018 Julien Guittard. (https://julienguittard.com)
+ * @license   https://github.com/jguittard/mezzio-content-validation/blob/master/LICENSE.md
  *     MIT License
  */
+
 declare(strict_types=1);
 
-namespace Zend\Expressive\ContentValidation\Validator;
+namespace Mezzio\ContentValidation\Validator;
 
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Interface ValidatorHandlerInterface
  *
- * @package Zend\Expressive\ContentValidation\Validator
+ * @package Mezzio\ContentValidation\Validator
  */
 interface ValidatorHandlerInterface
 {
